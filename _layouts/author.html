@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% assign author = site.data.authors[page.author] %}
+{% if author.gravatar %}<img src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=128" class="avatar" />{% endif %}
+
+<h1>{{ author.name }}</h1>
+
+{% if author.twitter %}<a href="https://twitter.com/{{ author.twitter }}" class="twitter" title="{{ author.name }} on Twitter"><img src="https://g.twimg.com/dev/documentation/image/Twitter_logo_blue_16.png"><span class="username">@{{ author.twitter }}</span></a>{% endif %}
+
+{{ page.content | markdownify }}
+<hr/>
+
+<div class="index">
+{% assign author_posts = site.posts | where:"author", page.author %}{% for post in author_posts %}
+<article>
+<header>
+<h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h1>
+{% if post.subtitle %}<p class="subtitle">{{ post.subtitle }}</p>{% endif %}
+<p class="byline"><time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B, %Y" }}</time></p>
+</header>
+</article>
+{% endfor %}
+</div>

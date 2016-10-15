@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+<header>
+<h1 itemprop="name headline">{{ page.title }}</h1>
+{% if page.subtitle %}<p class="subtitle" itemprop="alternativeHeadline">{{ page.subtitle }}</p>{% endif %}
+
+<p class="byline">
+{% if page.author %}{% assign author = site.data.authors[page.author] %}
+by <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+{% assign author_data = site.authors | where:"author", page.author %}{% assign author_page = author_data | first %}{% if author_page.url %}
+<a href="{{ author_page.url | prepend: site.baseurl }}" itemprop="name">{{ author.name | default: page.author }}</a>
+{% else %}
+<span itemprop="name">{{ author.name | default: page.author }}</span>
+{% endif %}
+</span><br/>
+{% endif %}
+<time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B, %Y" }}</time>
+
+</p>
+</header>
+
+<div class="body" itemprop="articleBody">
+
+{{ page.content }}
+</div>
+
+{% if page.tags.size > 0 %}<footer>
+<ul class="tags">
+{% for tag in page.tags %}
+<li><a>{{ tag }}</a></li>
+{% endfor %}
+</ul>
+</footer>{% endif %}
+
+</article>

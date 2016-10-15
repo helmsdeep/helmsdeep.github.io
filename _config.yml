@@ -1,0 +1,83 @@
+title: helmsdeep.org
+description: "Through a glass darkly…"
+url: 'https://www.helmsdeep.org'
+permalink: /:year/:month/:title.html
+excerpt_separator: "\n\n\n"
+markdown: kramdown
+timezone: Australia/Brisbane
+exclude: ['Gemfile*']
+gems:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-sitemap
+paginate: 10
+paginate_path: "/page/:num/"
+collections:
+  authors:
+    output: true
+    permalink: /:collection/:path/
+  recipes:
+    output: true
+    permalink: /:collection/:title.html
+    title: Recipes
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'post'
+  -
+    scope:
+      path: ''
+      type: 'authors'
+    values:
+      layout: 'author'
+  -
+    scope:
+      path: ''
+      type: 'recipes'
+    values:
+      layout: 'recipe'
+prose:
+  rooturl: '_posts'
+  siteurl: 'https://www.helmsdeep.org/'
+  media: 'media'
+  ignore:
+    - index.html
+    - _config.yml
+    - /_layouts
+    - /_includes
+    - /_data
+    - rss.xml
+    - authors.jsonp
+  metadata:
+    _posts:
+      - name: 'date'
+        field:
+          element: 'hidden'
+          value: CURRENT_DATETIME
+      - name: 'published'
+        field:
+          element: 'checkbox'
+          value: true
+          label: 'Published'
+      - name: 'title'
+        field:
+          element: 'text'
+          label: 'Title'
+      - name: 'subtitle'
+        field:
+          element: 'text'
+          label: 'Subtitle'
+      - name: 'author'
+        field:
+          element: 'select'
+          label: 'Author'
+          options: 'https://www.helmsdeep.org/authors.jsonp'
+      - name: 'excerpt'
+        field:
+          element: 'textarea'
+          label: 'Description'
+          placeholder: 'Optional summary of the post'

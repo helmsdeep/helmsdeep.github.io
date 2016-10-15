@@ -1,0 +1,12 @@
+---
+---
+callback([
+  {
+    "name" : "None",
+    "value" : null
+  },
+{% for a in site.authors %}  {
+    "name" : "{{ a.title }}",
+    "value" : "{{ a.author }}"
+  }{% unless forloop.last %},{%endunless %}
+{% endfor %}])

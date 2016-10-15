@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="index">
+
+{% for post in paginator.posts %}<article itemscope itemtype="http://schema.org/BlogPosting">
+
+<header>
+<h1 itemprop="name headline"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h1>
+{% if post.subtitle %}<p class="subtitle" itemprop="alternativeHeadline">{{ post.subtitle }}</p>{% endif %}
+
+<p class="byline">
+<time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B, %Y" }}</time>
+{% if post.author %}{% assign author = site.data.authors[post.author] %}{% assign author_data = site.authors | where:"author", post.author %}{% assign author_page = author_data | first %}
+by <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+{% if author_page.url %}<a href="{{ author_page.url | prepend: site.baseurl }}" itemprop="name">{{ author.name | default: post.author }}</a>
+{% else %}<span itemprop="name">{{ author.name | default: post.author }}</span>{% endif %}
+</span>{% endif %}
+</p>
+</header>
+
+{% if post.excerpt %}{% unless post.content contains site.excerpt_separator %}
+{{ post.excerpt | markdownify }}
+{% else %}
+{{ post.excerpt }}
+{% endunless %}{% endif %}
+
+<footer>
+<p class="read-more"><a href="{{ post.url | prepend: site.baseurl }}">read more</a></p>
+</footer>
+
+</article>
+{% endfor %}
+
+<p class="pagination">{% if paginator.previous_page %}
+<a href="{{ paginator.previous_page_path }}">◀&nbsp;&nbsp;Previous</a>
+{% endif %}
+Page: {{ paginator.page }} of {{ paginator.total_pages }}
+{% if paginator.next_page %}
+<a href="{{ paginator.next_page_path }}">Next&nbsp;&nbsp;▶</a>
+{% endif %}</p>
+
+</div>
