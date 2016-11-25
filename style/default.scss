@@ -461,12 +461,20 @@ figure > figcaption {
     margin: 3rem auto;
 }
 
+.body > p:first-of-type {
+    min-height: 3rem;
+}
+
 .body > p:first-of-type:first-letter {
     float: left;
     padding: 0 0.3rem;
     font-size: 4rem;
     line-height: 1.1;
     margin-bottom: -1rem;
+}
+
+.body > hr + p {
+    min-height: 3rem;
 }
 
 .body > hr + p:first-letter {
@@ -591,12 +599,39 @@ ul.contributors > li > img {
 }
 
 @media print {
+    @page {
+        margin: 2cm 4cm;
+
+        counter-increment: page;
+        counter-reset: page 1;
+
+        @bottom-right {
+            border-top: 0.5pt solid black;
+            content: counter(page);
+        }
+    }
+
+    body {
+        font-size: 11pt;
+        text-align: justify;
+    }
+
     body > header {
         display: none;
     }
 
     body > footer {
         display: none;
+    }
+
+    article > header {
+        margin: 0;
+        padding: 0;
+    }
+
+    article > header > h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
     }
 
     article > footer > ul.tags {
@@ -633,5 +668,13 @@ ul.contributors > li > img {
 
     article.h-recipe > .body li {
         margin: 0;
+    }
+
+    hr {
+        border-bottom: 0.5pt solid;
+    }
+
+    a, a:visited {
+        color: black;
     }
 }
