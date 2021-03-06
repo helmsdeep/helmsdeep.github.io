@@ -1,6 +1,7 @@
 ---
 ---
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Source+Code+Pro&family=Oswald&display=swap');
 
 $max-width: 50rem;
 
@@ -197,16 +198,6 @@ table td {
     padding: 0;
 }
 
-a.read-more {
-    display: block;
-    text-align: right;
-    text-decoration: none;
-}
-
-a.read-more:after {
-    content: '...';
-}
-
 body > header {
     background: $heading_color;
     background: url(heading.jpg);
@@ -313,6 +304,10 @@ article > header > p.byline {
     color: $metadata_color;
 }
 
+article > footer {
+    margin-bottom: 3em;
+}
+
 article > footer > ul.tags {
     margin: 0.5rem 0;
     padding: 0;
@@ -379,6 +374,10 @@ article > header > ul.tags > li {
     padding: 0;
     font-size: 0.8rem;
     color: $metadata_color;
+}
+
+.index > article > p:last-of-type {
+    margin-bottom: 0;
 }
 
 .index > header > h1 {
@@ -503,10 +502,9 @@ body > footer * {
     display: block;
     text-align: right;
     text-decoration: none;
-}
-
-.read-more:after {
-    content: '...';
+    color: $metadata_color;
+    margin-top: 0.5em;
+    font-size: 0.9em;
 }
 
 .pagination {

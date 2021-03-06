@@ -5,11 +5,12 @@ layout: default
 
 <header>
 <h1 class="p-name" itemprop="name headline">{{ page.title }}</h1>
+<meta itemprop="recipieCategory" content="{{ page.category}}"/>
 </header>
 
 <div class="body" itemprop="articleBody">
 
-{{ page.content | markdownify }}
+<div itemprop="description">{{ page.content | markdownify }}</div>
 
 <h2>Ingredients</h2>
 
@@ -27,7 +28,10 @@ layout: default
 <h2>Method</h2>
 
 <ol class="e-instructions" itemprop="recipeInstructions">{% for method in page.method %}
-<li>{{ method | markdownify }}</li>
+<li itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+<meta itemprop="position" content="2"/>
+<span itemprop="itemListElement">{{ method | markdownify }}</span>
+</li>
 {% endfor %}</ol>
 
 </div>
