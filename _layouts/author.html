@@ -6,7 +6,7 @@ layout: default
 
 <h1>{{ author.name }}</h1>
 
-{% if author.twitter %}<a href="https://twitter.com/{{ author.twitter }}" class="twitter" title="{{ author.name }} on Twitter"><img src="https://g.twimg.com/dev/documentation/image/Twitter_logo_blue_16.png"><span class="username">@{{ author.twitter }}</span></a>{% endif %}
+{% if author.twitter %}<p class="twitter"><a href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }} on Twitter"><span class="username">@{{ author.twitter }}</span></a></p>{% endif %}
 
 {{ page.content | markdownify }}
 <hr/>
