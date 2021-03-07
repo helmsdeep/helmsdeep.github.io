@@ -11,7 +11,7 @@ layout: default
 {% if page.author %}{% assign author = site.data.authors[page.author] %}
 by <span itemprop="author" itemscope itemtype="http://schema.org/Person">
 {% assign author_data = site.authors | where:"author", page.author %}{% assign author_page = author_data | first %}{% if author_page.url %}
-<a href="{{ author_page.url | prepend: site.baseurl }}" itemprop="name">{{ author.name | default: page.author }}</a>
+<a href="{{ author_page.url | prepend: site.baseurl }}" itemprop="url"><span itemprop="name">{{ author.name | default: page.author }}</span></a>
 {% else %}
 <span itemprop="name">{{ author.name | default: page.author }}</span>
 {% endif %}

@@ -16,7 +16,7 @@ layout: default
 <meta itemprop="dateModified" content="{% if post.modified_time %}{{ post.modified_time | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}" />
 {% if post.author %}{% assign author = site.data.authors[post.author] %}{% assign author_data = site.authors | where:"author", post.author %}{% assign author_page = author_data | first %}
 by <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-{% if author_page.url %}<a href="{{ author_page.url | prepend: site.baseurl }}" itemprop="name">{{ author.name | default: post.author }}</a>
+{% if author_page.url %}<a href="{{ author_page.url | prepend: site.baseurl }}" itemprop="url"><span itemprop="name">{{ author.name | default: post.author }}</span></a>
 {% else %}<span itemprop="name">{{ author.name | default: post.author }}</span>{% endif %}
 </span>{% endif %}
 </p>
