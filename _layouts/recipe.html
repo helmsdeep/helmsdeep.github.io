@@ -12,6 +12,8 @@ layout: default
 
 <div itemprop="description">{{ page.content | markdownify }}</div>
 
+{% if page.image %}<img itemprop="image" src="{{ page.image }}" />{% endif %}
+
 <h2>Ingredients</h2>
 
 <ul>{% for ingredient in page.ingredients %}
