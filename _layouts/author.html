@@ -2,6 +2,7 @@
 layout: default
 ---
 {% assign author = site.data.authors[page.author] %}
+<div itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
 {% if author.gravatar %}<img src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=128" class="avatar" itemprop="image" alt="Image of {{ author.name }}" />{% endif %}
 
 <h1 itemprop="name">{{ author.name }}</h1>
@@ -9,6 +10,7 @@ layout: default
 {% if author.twitter %}<p class="twitter"><a href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }} on Twitter"><span class="username">@{{ author.twitter }}</span></a></p>{% endif %}
 
 {{ page.content | markdownify }}
+</div>
 <hr/>
 
 <div class="index">
