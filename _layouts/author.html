@@ -2,9 +2,9 @@
 layout: default
 ---
 {% assign author = site.data.authors[page.author] %}
-{% if author.gravatar %}<img src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=128" class="avatar" />{% endif %}
+{% if author.gravatar %}<img src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=128" class="avatar" itemprop="image" alt="Image of {{ author.name }}" />{% endif %}
 
-<h1>{{ author.name }}</h1>
+<h1 itemprop="name">{{ author.name }}</h1>
 
 {% if author.twitter %}<p class="twitter"><a href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }} on Twitter"><span class="username">@{{ author.twitter }}</span></a></p>{% endif %}
 
@@ -13,11 +13,12 @@ layout: default
 
 <div class="index">
 {% assign author_posts = site.posts | where:"author", page.author %}{% for post in author_posts %}
-<article>
+<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 <header>
-<h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h1>
-{% if post.subtitle %}<p class="subtitle">{{ post.subtitle }}</p>{% endif %}
+<h1 itemprop="name headline"><a href="{{ post.url | prepend: site.baseurl }}" itemprop="mainEntityOfPage">{{ post.title | escape }}</a></h1>
+{% if post.subtitle %}<p class="subtitle" itemprop="alternativeHeadline">{{ post.subtitle }}</p>{% endif %}
 <p class="byline"><time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B, %Y" }}</time></p>
+<meta itemprop="dateModified" content="{% if post.modified_time %}{{ post.modified_time | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}" />
 </header>
 </article>
 {% endfor %}

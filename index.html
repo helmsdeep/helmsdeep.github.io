@@ -11,7 +11,7 @@ layout: default
 {% if post.subtitle %}<p class="subtitle" itemprop="alternativeHeadline">{{ post.subtitle }}</p>{% endif %}
 
 <p class="byline">
-<div itemprop="publisher" itemscope itemtype="http://schema.org/Corporation"><meta itemprop="name" content="{{ site.title }}" /></div>
+<div itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="{{ site.title }}" /></div>
 <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B, %Y" }}</time>
 <meta itemprop="dateModified" content="{% if post.modified_time %}{{ post.modified_time | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}" />
 {% if post.author %}{% assign author = site.data.authors[post.author] %}{% assign author_data = site.authors | where:"author", post.author %}{% assign author_page = author_data | first %}
