@@ -18,5 +18,5 @@ Indeed, the whole creation shares with us in this, as Paul reminds us of our nee
 > 
 > We know that the whole creation has been groaning as in the pains of childbirth right up to the present time. Not only so, but we ourselves, who have the firstfruits of the Spirit, groan inwardly as we wait eagerly for our adoption to sonship, the redemption of our bodies. For in this hope we were saved. But hope that is seen is no hope at all. Who hopes for what they already have? But if we hope for what we do not yet have, we wait for it patiently.
 > 
-> [Romans 8:18-25](http://www.biblegateway.com/passage/?search=Romans 8:18-25">Romans 8:18-25)
+> [Romans 8:18-25](http://www.biblegateway.com/passage/?search=Romans+8:18-25)
 > {: .attrib}
