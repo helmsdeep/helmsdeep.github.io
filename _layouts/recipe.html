@@ -32,7 +32,7 @@ layout: default
 <ol class="e-instructions" itemprop="recipeInstructions">{% for method in page.method %}
 <li itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
 <meta itemprop="position" content="{{ forloop.index }}"/>
-<span itemprop="itemListElement">{{ method | markdownify }}</span>
+<div itemprop="itemListElement">{{ method | markdownify }}</div>
 </li>
 {% endfor %}</ol>
 

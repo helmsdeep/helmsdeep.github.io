@@ -19,7 +19,7 @@ by <span itemprop="author" itemscope itemtype="http://schema.org/Person">
 {% endif %}
 <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B, %Y" }}</time>
 <meta itemprop="dateModified" content="{% if page.modified_time %}{{ page.modified_time | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}" />
-<div itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="{{ site.title }}" /></div>
+<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="{{ site.title }}" /></span>
 
 </p>
 </header>
