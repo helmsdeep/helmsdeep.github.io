@@ -6,7 +6,7 @@ excerpt_separator: "\n\n\n"
 markdown: kramdown
 timezone: Australia/Brisbane
 exclude: ['Gemfile*']
-gems:
+plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-redirect-from
