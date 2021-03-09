@@ -10,14 +10,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title }}{% endif %}" />
 <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | xml_escape | truncate: 200 }}{% else %}{{ site.description | xml_escape | truncate: 200 }}{% endif %}" />
-<meta property="og:image" content="{{ '/style/icon_128.png' | prepend: site.baseurl | prepend: site.url }}" />
+<meta property="og:image" content="{{ page.image | default: '/style/icon_128.png' | prepend: site.baseurl | prepend: site.url }}" />
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@helmsdeep_org" />
 <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 <meta name="twitter:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title }}{% endif %}" />
 <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | xml_escape | truncate: 200 }}{% else %}{{ site.description | xml_escape | truncate: 200 }}{% endif %}" />
-<meta name="twitter:image" content="{{ '/style/icon_128.png' | prepend: site.baseurl | prepend: site.url }}" />
+<meta name="twitter:image" content="{{ page.image | default: '/style/icon_128.png' | prepend: site.baseurl | prepend: site.url }}" />
 {% assign author = site.data.authors[page.author] %}{% if author.twitter %}  <meta name="twitter:creator" content="@{{ author.twitter }}" />
 {% endif %}
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1.0">

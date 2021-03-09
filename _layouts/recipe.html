@@ -12,7 +12,7 @@ layout: default
 
 <div itemprop="description">{{ page.content | markdownify }}</div>
 
-{% if page.image %}<img itemprop="image" src="{{ page.image }}" />{% endif %}
+{% if page.image %}<img itemprop="image" src="{{ page.image }}" alt="{{ page.title }}" />{% endif %}
 
 <h2>Ingredients</h2>
 

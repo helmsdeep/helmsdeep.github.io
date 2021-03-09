@@ -26,6 +26,8 @@ by <span itemprop="author" itemscope itemtype="http://schema.org/Person">
 
 <div class="body" itemprop="articleBody">
 
+{% if page.image %}<img itemprop="image" src="{{ page.image }}" alt="{{ page.title }}" />{% endif %}
+
 {{ page.content }}
 </div>
 

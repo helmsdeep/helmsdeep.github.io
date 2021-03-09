@@ -6,6 +6,8 @@ layout: default
 
 {% for post in paginator.posts %}<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 
+{% if post.image %}<img itemprop="image" src="{{ post.image }}" alt="{{ post.title }}" />{% endif %}
+
 <header>
 <h1 itemprop="name headline"><a href="{{ post.url | prepend: site.baseurl }}" itemprop="mainEntityOfPage">{{ post.title | escape }}</a></h1>
 {% if post.subtitle %}<p class="subtitle" itemprop="alternativeHeadline">{{ post.subtitle }}</p>{% endif %}
